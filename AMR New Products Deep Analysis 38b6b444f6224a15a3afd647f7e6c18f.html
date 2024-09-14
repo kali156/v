@@ -1,0 +1,702 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>AMR New Products Deep Analysis</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 237, 214, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 237, 214, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(249, 228, 188, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="38b6b444-f622-4a15-a3af-d647f7e6c18f" class="page sans"><header><img class="page-cover-image" src="https://www.notion.so/images/page-cover/gradients_3.png" style="object-position:center 60%"/><h1 class="page-title">AMR New Products Deep Analysis</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2e01afe2-d990-4e6d-b051-9f0192677b03"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><p id="1760ddf2-010e-4ac1-99ed-f42f94c204ca" class="">Resource : from the WHO ( World Health Organization ) </p><p id="6c12e799-30fa-4437-b0a9-92e0aa3c1ffe" class="">the Data of update : Nov-21</p></div></figure><p id="dafcffb2-d110-4fb9-b6b4-ca7f8f83f67a" class="">The dataset is measure effect Different Drugs with different methods and measure different variables </p><p id="7fa50224-36ad-40d7-8db9-6d5e62f700ac" class="">like : how drugs active against Priority Pathogen </p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="eed78522-3b7d-4151-9863-fdfdd48aad17"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><p id="2f9ff131-40ef-464b-9039-889367eab9f3" class=""><strong>Key insights :</strong></p><ul id="0923c938-dd10-401f-9dd1-835f05190113" class="bulleted-list"><li style="list-style-type:disc"><strong>The dataset analyzes various drugs&#x27; effects on priority pathogens, focusing on antibiotics and non-traditional categories</strong></li></ul><ul id="3f5fc641-fbd4-4039-9b63-7199974b600c" class="bulleted-list"><li style="list-style-type:disc"><strong>32 antibiotic products are included, with the majority in Phase I of R&amp;D</strong></li></ul><ul id="8da15547-6468-4476-a2b1-edb3e25a5588" class="bulleted-list"><li style="list-style-type:disc"><strong>Non-traditional categories include bacteriophages, immunomodulating agents, microbe-modulating, miscellaneous, and antibodies</strong></li></ul><ul id="2e5002db-704c-47cd-b640-10f32658faf2" class="bulleted-list"><li style="list-style-type:disc"><strong>Bacteriophages and phage-derived enzymes (9 products) show promise, with 5 out of 9 in Phase II</strong></li></ul><ul id="53bb008d-204b-4e34-99de-c1e9b4321472" class="bulleted-list"><li style="list-style-type:disc"><strong>Immunomodulating agents (2 products) demonstrate potential, particularly against priority pathogens</strong></li></ul><ul id="8ab12851-ae91-401c-acb8-8c2fd0c21d1f" class="bulleted-list"><li style="list-style-type:disc"><strong>Microbe-modulating products (9 in total) primarily target Clostridioides difficile</strong></li></ul><ul id="39e289b0-0ccf-417c-8de0-7b04bc8970d4" class="bulleted-list"><li style="list-style-type:disc"><strong>Miscellaneous category (5 products) includes various antibacterial classes with diverse administration routes</strong></li></ul><ul id="fb94dc47-5fb4-4792-a2e9-f27d9a124818" class="bulleted-list"><li style="list-style-type:disc"><strong>Antibodies (6 products) show promising effectiveness against all tested pathogens</strong></li></ul></div></figure><h1 id="62166703-3957-4c93-aee9-4c0b3008da0f" class="block-color-gray_background">What is The Classification of the Products in the data set?</h1><figure id="0c6dff9d-3bdc-4072-b494-4113f37ea1ae" class="image"><a href="calssification_.png"><img style="width:1248px" src="calssification_.png"/></a></figure><hr id="f7f60f17-a496-4b5b-9de1-229a1ca14ee9"/><h1 id="26bff176-364f-49e2-a170-d773177b4075" class="block-color-gray_background">Antibiotics: </h1><p id="9294f5b9-cd9d-495d-968a-ae1c244c7ae2" class="">the numbers of the antibiotics in the dataset is : <strong>32 Product</strong></p><div id="7711bb90-4455-47fa-a26f-942d90c2e660" class="column-list"><div id="d379c274-6440-4c8e-be37-f629afc60c90" style="width:52.941176470588246%" class="column"><h3 id="246f757e-f066-4974-af38-882d93821d04" class="block-color-gray_background"><strong>What is the antibacterial class of the antibiotics ? </strong></h3><p id="3d0eb07a-9844-4def-979e-2e61b9dc75ad" class=""><strong>there is +30 bacterial class for this antibiotics.</strong></p><h3 id="204e4fab-dee5-400b-a823-ff58f82e5cf5" class="block-color-gray_background"><mark class="highlight-default"><strong>the R.D phase of the Products : </strong></mark></h3><p id="2a901562-4e97-4f4d-b004-232e84186f4f" class="">the vast majority of the Products is still in the Phase I </p><figure id="35f5e707-ce4d-434f-bf2d-2f89332f7191" class="image"><a href="R.D_phase_of_Anti-biotics.png"><img style="width:576px" src="R.D_phase_of_Anti-biotics.png"/></a></figure><hr id="777a791c-baf0-4fab-952f-604c5e5eb022"/></div><div id="8819b9e4-dbc8-417f-8866-9f682fd2e8ae" style="width:47.05882352941177%" class="column"><figure id="94adc348-bae5-4893-95b7-90b534b226bf" class="image" style="text-align:right"><a href="image.png"><img style="width:432px" src="image.png"/></a></figure></div></div><h3 id="e0ab82b2-1ccf-4e26-889b-9ccfe19eedec" class="block-color-gray_background"><strong>the Route of Administration of the different Products </strong></h3><figure id="41133aed-9272-4dd2-ad11-71277c9dd373" class="image"><a href="route_of_adminstrtion.png"><img style="width:1111px" src="route_of_adminstrtion.png"/></a></figure><h3 id="92c372e8-8c38-4ed3-b0ac-52727fbf236b" class="block-color-gray_background">The Results of the Products against Priority Pathogens</h3><figure id="3d90a68e-1efb-4ffd-bba9-50466ace5606" class="image"><a href="9d8c462c-a496-4532-a72b-48b4594666a9.png"><img style="width:598.7945205479451px" src="9d8c462c-a496-4532-a72b-48b4594666a9.png"/></a></figure><hr id="fc2f66c4-a84a-42ed-86c5-6fee28e4b939"/><h1 id="f8a61b71-8420-4fe3-8603-b9423cf8b905" class="block-color-gray_background"><strong>Non-Traditional Categories </strong></h1><p id="3e41a1ea-0491-4174-a67f-f10fb6b97329" class=""><strong>the Non-Traditional Categories is divided into 5  :</strong></p><ol type="1" id="60fdbc87-d0eb-4058-b5dd-89ee993d9836" class="numbered-list" start="1"><li><strong>Bacteriophages and phage-derived enzymes</strong></li></ol><ol type="1" id="438b3108-5233-4586-8371-16688138f0bd" class="numbered-list" start="2"><li><strong>Immunomodulating agents</strong></li></ol><ol type="1" id="590a9853-9672-4267-b628-7f9fd97f6a30" class="numbered-list" start="3"><li><strong>microbe-modulating</strong></li></ol><ol type="1" id="ab53c30c-91bb-4070-8301-31443ea00a13" class="numbered-list" start="4"><li><strong>Miscellaneous</strong></li></ol><ol type="1" id="e06edd74-b274-405e-ad4e-830eabb00f17" class="numbered-list" start="5"><li><strong>antibodies data</strong></li></ol><h1 id="4c821d5d-af69-4c55-8a16-8a0402dc33f4" class="block-color-gray_background">Bacteriophages and phage-derived enzymes</h1><p id="e9b423a4-f8c1-4575-8ba6-21984fd551e8" class="">the numbers of the <strong>Bacteriophages and phage-derived enzymes type Drug </strong>in the dataset is : 9<strong> Product</strong></p><h3 id="e2faade5-2c90-4750-b73d-5b5d6c7d4a77" class="block-color-gray_background"><strong>What is the antibacterial class of the </strong>Bacteriophages and phage-derived enzymes<strong>?</strong></h3><p id="6ac39b1f-d132-4b9c-b771-8f4915b6069c" class="">There is four Antibacterial class : </p><figure id="01949388-9fff-44d4-be6f-8206ec3163ee" class="image"><a href="antibacterial_calss.jpg"><img style="width:768px" src="antibacterial_calss.jpg"/></a></figure><div id="1bbea8bf-a05f-4150-b742-282e7fc53675" class="column-list"><div id="62be9faa-5574-4a0e-9cee-90d485f57148" style="width:50%" class="column"><h3 id="1601b533-bb61-4532-8518-0ac77f19bc71" class="block-color-gray_background"><mark class="highlight-default"><strong>the R.D phases of The </strong></mark>Bacteriophages and phage-derived enzymes<mark class="highlight-default"><strong> Products : </strong></mark></h3><p id="0c43e774-dd40-444e-a5da-8b3b11addcb5" class="">The 5 out of 9 of these product in the Phase II</p><h3 id="3d2eee41-437f-4d9f-a65e-8624985b07e0" class="block-color-gray_background"><strong>the Route of Administration of the different Products </strong></h3><figure id="5587a626-e924-4532-b9cf-c629211e49ae" class="image"><a href="Route_of_adminstration.png"><img style="width:435.5px" src="Route_of_adminstration.png"/></a></figure></div><div id="af2f9c93-0346-4234-8b9c-cca31f470838" style="width:50%" class="column"><figure id="3190b786-8c16-4c44-ac1f-ebdda9fe0bd3" class="image" style="text-align:right"><a href="R.D_phase.png"><img style="width:435.5px" src="R.D_phase.png"/></a></figure></div></div><h3 id="04030e61-a532-48f1-8d64-71aafd8fa78e" class="block-color-gray_background"><strong>Result</strong></h3><p id="5a1f6f68-9528-4dbd-955c-8e4ffeb8f1b9" class="">
+</p><figure id="770e262b-0858-4f0a-b690-bee62e40086a" class="image"><a href="Result.png"><img style="width:486px" src="Result.png"/></a></figure><h1 id="02b161a3-7b8b-438b-94e0-263919059944" class="block-color-gray_background"><strong>Immunomodulating agents :</strong></h1><p id="0cf5dc5d-25f4-4cf1-b7e0-e987b7a4eb3b" class="">there is only 2 <strong>Immunomodulating agents products </strong></p><div id="eea0ab87-cc58-427d-8b35-7135ed6c30a1" class="column-list"><div id="3242ec7c-45d2-4ecd-aced-f32b1045d760" style="width:50%" class="column"><h3 id="b6f1006d-2781-40a3-8849-88409ae487ae" class="block-color-gray_background"><strong>What is the antibacterial class of the Immunomodulating agents ? </strong></h3><p id="f2aea99c-dc1c-4629-8147-1e467c9d99a3" class="">there is two (anti bacterial classes in the data) : </p><ul id="43fd82b1-9d1a-4ae5-8f97-ff79c84a973e" class="bulleted-list"><li style="list-style-type:disc">Antagonist of super-antigen exotoxins and CD28 T-cell</li></ul><ul id="4b26a245-ee5c-455d-a5da-1a4dc5b9c8d4" class="bulleted-list"><li style="list-style-type:disc">Recombinant human plasma gelsolin protein</li></ul><h3 id="55969434-fe2d-4434-b4d4-f03ae5d71c66" class="block-color-gray_background"><strong>the Route of Administration of the different Products ?</strong></h3><figure id="434e092b-8dc7-4a53-bc54-0679a2f02a72" class="image" style="text-align:center"><a href="Route_of_adminsstration.png"><img style="width:288px" src="Route_of_adminsstration.png"/></a></figure><hr id="25e06f0e-e69b-4625-808c-52386db7e4e9"/><p id="27605004-23db-44bb-9e2e-b1318e96e51a" class="">
+</p></div><div id="4147664d-ec14-485d-a6e9-dc692c02051f" style="width:50%" class="column"><figure id="a34b54d0-7b15-415b-a14f-6da8a6bc2276" class="image" style="text-align:right"><a href="Immunomodulating_agents_(anti-bacterial_class_).png"><img style="width:435.5px" src="Immunomodulating_agents_(anti-bacterial_class_).png"/></a></figure><p id="80246319-3326-449e-b010-5bae857205d5" class="">
+</p><p id="1b5f8be6-7aa6-4acb-a1b8-ed2a33b8ec28" class="">
+</p><hr id="23644477-10ac-4971-ac9c-111fdabaf6bf"/><p id="28332b98-91d6-4ecf-b29b-d333b227923c" class="">
+</p></div></div><div id="f2316fd9-fa7f-4a2a-aa65-f07d4b014e0c" class="column-list"><div id="cf7070f5-a948-4289-9a78-6c521925a9dd" style="width:50%" class="column"><h3 id="8b16bdb6-854b-4e17-88d1-b1bd26ac9363" class="block-color-gray_background"><strong>What is the Names of the Pathogen that immuno-modulating agents tested on ?</strong></h3><h3 id="ac28a442-2b0e-481e-bfbf-f70bb9d95210" class="block-color-gray_background">Result :</h3><figure id="2696a58c-22cc-4ad0-b938-384fae3b6447" class="image"><a href="Activity.png"><img style="width:435.5px" src="Activity.png"/></a></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="9150edc4-85b4-40dd-96d5-a35c6f34c070"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><p id="81870879-9049-4dc2-8d8d-24f8a873b642" class="">so seems Like <strong>Rhu-pGSN</strong> product is very promising against Priority Pathogen  and may be <strong>Recombinant human plasma gelsolin protein</strong></p><p id="c630ab2b-2b04-400f-99a0-9f1388d59b29" class="">is very good </p></div></figure></div><div id="e9406760-d6ec-4419-b8f5-3bd7e49c10eb" style="width:50%" class="column"><figure id="4a140aaa-09de-46c4-83b9-14cbacfa830c" class="image"><a href="Names_of_the_Pathogen_that_immuno_modulating_agents_tested_on.png"><img style="width:435.5px" src="Names_of_the_Pathogen_that_immuno_modulating_agents_tested_on.png"/></a></figure><p id="0c7c3336-b5fc-4c88-8c63-f150cc5ec7be" class="">
+</p></div></div><p id="11afbeb6-bb1b-4f97-9951-f338b59d0e25" class="">
+</p><h1 id="fd997065-60fc-4ab0-b372-ce273c33380f" class="block-color-gray_background"><strong>Microbe-Modulating</strong></h1><p id="3cf00718-3880-4757-a33c-adea85805836" class="">the numbers of the <strong>Microbe-Modulating type Drug </strong>in the dataset is : 9<strong> Product</strong></p><div id="f8798a86-08d8-40b1-ab9c-d5cc03ca6363" class="column-list"><div id="6de75ff5-a641-4a48-9e3d-24d1b3d21881" style="width:50%" class="column"><h3 id="d53100ec-2b26-422c-b507-f899e2fab627" class="block-color-gray_background"><strong>What is the antibacterial class of the Microbe-Modulating Products ? </strong></h3><ul id="b46a82cb-c378-4ed0-b96c-39372a5e0898" class="bulleted-list"><li style="list-style-type:disc"><strong>Live biotherapeutic product</strong></li></ul><ul id="233d0a2f-1946-4975-ba65-8f2ed44103d3" class="bulleted-list"><li style="list-style-type:disc"><strong>Antibiotic inactivator and protective colon-targeted adsorbent</strong></li></ul><ul id="a6188715-cfb8-4ebc-aa90-79524f82d33e" class="bulleted-list"><li style="list-style-type:disc"><strong>Antibiotic inactivator</strong></li></ul><p id="acaa483f-3894-4581-b37f-7604f8a195a6" class="">
+</p></div><div id="2ee860db-d9f6-4d3f-b846-6459367cc622" style="width:50%" class="column"><figure id="a37e819f-ad29-4c34-81ed-a2a21513b7d1" class="image" style="text-align:right"><a href="the_most_drugs_has_been_developed_by_Live_bio-therapeutic_products.png"><img style="width:576px" src="the_most_drugs_has_been_developed_by_Live_bio-therapeutic_products.png"/></a></figure></div></div><h3 id="21f26ed5-c724-4bf4-a0db-e280d17604e6" class="block-color-gray_background"><strong>the Route of Administration of the different Microbe-Modulating Products ?</strong></h3><figure id="878eb8d2-525d-4edf-8498-d6462f94e544" class="image"><a href="route_of_adminstration.png"><img style="width:486px" src="route_of_adminstration.png"/></a></figure><div id="924d7bec-25a6-4ea9-a3fa-cbda5d3a45fb" class="column-list"><div id="87546733-b80b-4529-890f-05b707462637" style="width:50%" class="column"><h3 id="6fa0fe23-573b-4972-8a7b-4af4ae836538" class="block-color-gray_background"><strong>What is the Names of the Pathogen that Microbe-Modulating Products tested on ?</strong></h3><p id="48a9dbd3-d0eb-4355-9fb2-16bf28a7f54f" class="">the only pathogen that Products tested on is : <em><strong>Clostridioides difficile</strong></em></p><p id="59fece20-b5b4-4117-b685-b335f3258aa0" class="">Except SVT-1C469 has been Tested against Multiple Pathogens</p><h3 id="adcfceb4-b77e-4cfc-8f94-13b882731322" class="block-color-gray_background"><strong>Results </strong></h3><figure id="0c8b0ae9-57bc-4fd7-8e32-76f6dd4a208d" class="image"><a href="Results.png"><img style="width:386.5px" src="Results.png"/></a></figure></div><div id="bcaad911-00a8-452d-93c8-852ade01b50d" style="width:50%" class="column"><figure id="836057ef-f2c7-433c-8ca1-f047a8c2c919" class="image"><a href="pathogens_had_been_tried_aganist_pathogens.png"><img style="width:386.5px" src="pathogens_had_been_tried_aganist_pathogens.png"/></a></figure><p id="8ec39237-0d03-4268-a8ae-f1bf9c3731ae" class="">
+</p></div></div><p id="bcae4eae-0bac-4a81-ae06-ed6936118e05" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="7cc51613-f0ad-4b9b-a6ac-d910c456832a"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><p id="e3deca38-7775-489d-b0eb-5ecf2d126855" class="">Because <strong>The lack of Data</strong> we could not know how Products  effect <em><strong>Clostridioides difficile.</strong></em></p><p id="970c408b-7942-4161-9cc2-cfacd9304ab9" class="">Except that data <strong>SVT-1C469 </strong>Product show Promising Potential against <strong>Helicobacter pylori</strong> Pathogens.</p></div></figure><h1 id="2ef3d06f-a147-42e4-a135-9eacebea5dbf" class="block-color-gray_background"><strong>Miscellaneous</strong></h1><p id="e1447f7a-da8b-4f66-906a-17d96417d418" class="">the numbers of the <strong>Miscellaneous type Drug </strong>in the dataset is : 5 <strong>Product</strong></p><div id="68201130-12b9-476c-b183-6c9673c491a0" class="column-list"><div id="da807e06-82d0-44fe-8568-30e7a748c851" style="width:50%" class="column"><h3 id="05afef4a-c6f2-4902-88bd-dd259eac2b0b" class="block-color-gray_background"><strong>What is the antibacterial class of the Miscellaneous Products ? </strong></h3><p id="25170fe7-ff82-453d-adb3-3f480e1b55e3" class=""><strong>[1] &quot;Staphyloxanthin biosynthesis inhibition&quot;</strong></p><p id="97c9afd2-495d-4ee7-8cc2-42040347167a" class=""><strong>[2] &quot;Broad spectrum anti-toxin liposomal agent and nanoparticle&quot;<br/>[3] &quot;Type III secretion system inhibition + cefepime&quot;<br/></strong></p><p id="69c24a5a-5c92-4ad8-a7c1-2ef6f55e4d9c" class=""><strong>[4] &quot;Undisclosed (FimH)&quot;</strong></p><p id="49cd785c-37b9-4f86-9165-479ea7e2804c" class=""><strong>[5] &quot;Alginate oligosaccharide (G-block) fragment&quot;</strong></p><p id="47810080-3f15-400b-b198-eed49598b345" class="">
+</p></div><div id="01f1be68-6691-44c4-b181-2555cdd908db" style="width:50%" class="column"><figure id="27f9f973-f9c8-46fd-ba00-2384c2110114" class="image"><a href="Antibacterial_class.png"><img style="width:480px" src="Antibacterial_class.png"/></a></figure></div></div><h3 id="c882d673-d182-4892-8755-8ccbb2552ede" class="block-color-gray_background"><strong>the Route of Administration of the different Miscellaneous Products ?</strong></h3><div id="89fc6490-88aa-4656-af16-729d36a755dd" class="column-list"><div id="4771cef4-b49f-45af-88b7-5f56239b11e3" style="width:50%" class="column"><figure id="d7ff7ed0-4988-4de2-8af8-274336c7bdf3" class="image"><a href="Route.of.admistration.png"><img style="width:480px" src="Route.of.admistration.png"/></a></figure></div><div id="17137ab9-7100-49a8-b48d-fe4dc63723e9" style="width:50.00000000000002%" class="column"><h3 id="32cdd57e-3fbe-4b15-aa10-540cf01ee25e" class="block-color-gray_background"><strong>What is the Names of the Pathogen that Miscellaneous  Products tested on ?</strong></h3><p id="d0e0837b-9528-4419-bde9-611138be49a9" class="">
+</p><figure id="35b30249-cd3f-42d1-a983-a39a52b03e5d" class="image"><a href="pathigens_that_has_been_tested_aganist.png"><img style="width:386.5px" src="pathigens_that_has_been_tested_aganist.png"/></a></figure></div></div><h3 id="78f2fc98-2bb4-4530-b5d0-b08d2b97e898" class="block-color-gray_background">Result</h3><figure id="57e698a0-5816-47bf-ade9-9ba21d02c706" class="image"><a href="activity_agnosy_Pathogens.png"><img style="width:486px" src="activity_agnosy_Pathogens.png"/></a></figure><h1 id="31e1e2f8-9a54-4193-9774-5cac4958f8c0" class="block-color-gray_background"><strong>antibodies data</strong></h1><p id="5450b97d-95c1-453a-8b35-5b291ade389d" class="">the numbers of the <strong>antibodies  type Drug </strong>in the dataset is : 6<strong> Product</strong></p><div id="fc978808-dc46-4c68-b909-c343d6f32d06" class="column-list"><div id="2e4b4c24-b98e-4d59-a3df-d37d49dfd646" style="width:50%" class="column"><h3 id="642b883f-beb0-43cc-8d90-af63cc8d5d81" class="block-color-gray_background"><strong>What is the antibacterial class of the antibodies Products ? </strong></h3><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="d2746d7c-922f-4e31-82ad-4c33428aa44f" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">[1] &quot;Monoclonal antibody&quot;
+[2] &quot;anti-S. aureus IgM monoclonal Ab&quot;
+[3] &quot;anti-S. aureus IgG monoclonal Ab&quot;
+[4] &quot;Monoclonal Ab like\nrecombinant protein&quot;
+[5] &quot;Antibody&quot;
+[6] &quot;anti-C. difficile polcyclonal Ab&quot;</code></pre><p id="6bfe6556-489c-4ee4-9863-f1e1668c826a" class="">
+</p></div><div id="a3f769a8-ed46-409e-81ca-b24ae0717081" style="width:50%" class="column"><figure id="86dcedc9-dea7-404c-91bb-790535c692f6" class="image"><a href="the_anti_bacterial_class_that_have_been_used_in_Antibodies.png"><img style="width:386.5px" src="the_anti_bacterial_class_that_have_been_used_in_Antibodies.png"/></a></figure></div></div><div id="7537a1e7-bda4-4321-8f38-1279a3272ac5" class="column-list"><div id="b48863f7-c448-4f60-9004-96986f893fc1" style="width:50%" class="column"><h3 id="415dece9-1ad0-437b-9b10-9f49534f858b" class="block-color-gray_background"><strong>the Route of Administration of the different antibodies Products ?</strong></h3></div><div id="62dd7449-7ec1-4301-a5d3-d6935e0cac8b" style="width:50%" class="column"><h3 id="d35df2cb-6798-4036-9035-43b6015d2a98" class="block-color-gray_background"><strong>What is the Names of the Pathogen that antibodies  Products tested on ?</strong></h3></div></div><div id="0caed651-965d-43f9-b12c-d93696260229" class="column-list"><div id="fe49df5c-1c74-4ec3-8519-d5cf38f7d2cc" style="width:50%" class="column"><figure id="edcd37d9-af8d-4ed7-9927-8a9a207c406a" class="image"><a href="route_of_adminstration%201.png"><img style="width:386.5px" src="route_of_adminstration%201.png"/></a></figure></div><div id="451641eb-aed4-455d-82bf-6437ddc8b494" style="width:50%" class="column"><figure id="2fe57db2-df09-43bb-b3d2-3eb786414a91" class="image"><a href="tried_pathogen.png"><img style="width:386.5px" src="tried_pathogen.png"/></a></figure></div></div><h3 id="092b5957-6bdc-4e0e-8f3a-0fad3ceb8da5" class="block-color-gray_background">Result</h3><figure id="723a80d1-3642-42b4-9e64-59e7035e90ae" class="image"><a href="Rplot.png"><img style="width:486px" src="Rplot.png"/></a></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="ee9041e1-e70e-4215-bdf2-c74c7010cbe4"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><p id="05a9dd30-5b47-47ae-bf04-0e9662d2b85e" class="">It seems very Promising affective against all of the pathogens that had bee tested on  </p></div></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
